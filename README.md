@@ -5,5 +5,6 @@
 - [x] Define types for posts and users
 - [x] Set up database (xata)
 - [ ] Connect to database (xata)
-- [ ] Create schema for posts and users
+- [x] Create schema for posts and users
 - [ ] Add authentication (clerk)
+
