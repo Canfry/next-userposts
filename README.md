@@ -6,5 +6,5 @@
 - [x] Set up database (xata)
 - [x] Connect to database (xata)
 - [x] Create schema for posts and users
-- [ ] Add authentication (clerk)
+- [x] Add authentication (clerk)
 

@@ -1,10 +1,17 @@
 import { getPosts } from "@/db/postQueries";
+import { auth, currentUser } from "@clerk/nextjs/server";
 
 export default async function Home() {
   // const post = await createPost({
   //   title: "My second post",
   //   body: "This is my second post",
   // } as PostsRecord);
+
+  const authInfo = await auth();
+  console.log(authInfo);
+
+  const user = await currentUser();
+  console.log(user?.emailAddresses[0].emailAddress);
 
   const posts = await getPosts();
 
