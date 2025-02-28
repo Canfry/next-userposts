@@ -1,6 +1,6 @@
 # Todos
 
-- [ ] Clean main page
+- [x] Clean main page
 - [ ] Define routes by folder
 - [ ] Define types for posts and users
 - [ ] Connect to database (xata)
