@@ -1,0 +1,18 @@
+{
+  "id": "mig_cv0rpcmfvuvgoi6au4t0",
+  "parentID": "mig_cv0rp8mfvuvgoi6au4s0",
+  "checksum": "1:3068ddd9a8fc650e0854821cd8c9d9fe807dae37d5df189ab41073360811aa23",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "body",
+          "type": "text",
+          "notNull": true,
+          "defaultValue": "body"
+        },
+        "table": "posts"
+      }
+    }
+  ]
+}

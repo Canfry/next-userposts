@@ -1,0 +1,18 @@
+{
+  "id": "mig_cv0rp8mfvuvgoi6au4s0",
+  "parentID": "mig_cv0rp3mfvuvgoi6au4r0",
+  "checksum": "1:e62ee1585953e0eee2019bf1d55dddd027d95608d3e1b85d7b74ae5871672da3",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "title",
+          "type": "text",
+          "notNull": true,
+          "defaultValue": "title"
+        },
+        "table": "posts"
+      }
+    }
+  ]
+}

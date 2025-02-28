@@ -1,5 +1,5 @@
 {
-  "databaseURL": "https://Christophe-Anfry-s-workspace-phgkqo.us-east-1.xata.sh/db/user-posts",
+  "databaseURL": "https://Christophe-Anfry-s-workspace-phgkqo.us-east-1.xata.sh/db/next-userposts",
   "codegen": {
     "output": "src/xata.ts"
   }
