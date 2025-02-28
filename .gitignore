@@ -23,6 +23,7 @@
 # misc
 .DS_Store
 *.pem
+/.vscode
 
 # debug
 npm-debug.log*
@@ -41,6 +42,9 @@ yarn-error.log*
 next-env.d.ts
 
 # xata
-.xata
+/.xata
 .xatarc
 
+
+# clerk configuration (can include secrets)
+/.clerk/
