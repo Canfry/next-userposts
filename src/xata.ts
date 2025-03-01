@@ -12,6 +12,7 @@ const tables = [
     columns: [
       { name: "title", type: "text", notNull: true, defaultValue: "title" },
       { name: "body", type: "text", notNull: true, defaultValue: "body" },
+      { name: "userId", type: "text", notNull: true, defaultValue: "null" },
     ],
   },
 ] as const;
