@@ -27,7 +27,10 @@ export default async function Home() {
       </SignedOut>
       <SignedIn>
         {posts.map((post) => (
-          <p key={post.id}>{post.title}</p>
+          <div key={post.id}>
+            <h2>{post.title}</h2>
+            <p>{post.body}</p>
+          </div>
         ))}
       </SignedIn>
     </div>
