@@ -8,31 +8,10 @@ import type {
 
 const tables = [
   {
-    name: "users",
-    columns: [
-      { name: "name", type: "text", notNull: true, defaultValue: "name" },
-      {
-        name: "username",
-        type: "text",
-        notNull: true,
-        defaultValue: "username",
-      },
-      { name: "email", type: "text", notNull: true, defaultValue: "email" },
-      {
-        name: "password",
-        type: "text",
-        notNull: true,
-        defaultValue: "password",
-      },
-    ],
-    revLinks: [{ column: "user", table: "posts" }],
-  },
-  {
     name: "posts",
     columns: [
       { name: "title", type: "text", notNull: true, defaultValue: "title" },
       { name: "body", type: "text", notNull: true, defaultValue: "body" },
-      { name: "user", type: "link", link: { table: "users" } },
     ],
   },
 ] as const;
@@ -40,14 +19,10 @@ const tables = [
 export type SchemaTables = typeof tables;
 export type InferredTypes = SchemaInference<SchemaTables>;
 
-export type Users = InferredTypes["users"];
-export type UsersRecord = Users & XataRecord;
-
 export type Posts = InferredTypes["posts"];
 export type PostsRecord = Posts & XataRecord;
 
 export type DatabaseSchema = {
-  users: UsersRecord;
   posts: PostsRecord;
 };
 
