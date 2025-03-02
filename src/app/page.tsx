@@ -10,16 +10,16 @@ import Link from "next/link";
 export default async function Home() {
   const { userId } = await auth();
   console.log(userId);
+
+  const user = await currentUser();
+  console.log(user?.emailAddresses[0].emailAddress);
+
   // const post = await createPost({
   //   title: "My second post",
   //   body: "This is my second post",
   //   userId: userId
   // } as PostsRecord);
 
-
-
-  const user = await currentUser();
-  console.log(user?.emailAddresses[0].emailAddress);
 
   const posts: PostsRecord[] = await getPosts();
   console.log(posts);
