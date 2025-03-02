@@ -4,11 +4,6 @@ import { getXataClient } from "@/xata";
 import { PostsRecord } from "@/xata";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-// export async function createPost(post: PostsRecord) {
-//     const xata = getXataClient();
-//     const record = await xata.db.posts.create(post);
-//     return record;
-// }
 
 const xata = getXataClient();
 

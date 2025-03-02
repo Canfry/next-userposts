@@ -1,8 +1,6 @@
 import { getPosts } from "@/db/postQueries";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-// import { PostsRecord } from "@/xata";
 import { auth, currentUser } from "@clerk/nextjs/server";
-import CreatePostForm from "@/components/CreatePostForm";
 import { PostsRecord } from "@/xata";
 import PostCards from "@/components/PostCards";
 import Link from "next/link";
@@ -13,12 +11,6 @@ export default async function Home() {
 
   const user = await currentUser();
   console.log(user?.emailAddresses[0].emailAddress);
-
-  // const post = await createPost({
-  //   title: "My second post",
-  //   body: "This is my second post",
-  //   userId: userId
-  // } as PostsRecord);
 
 
   const posts: PostsRecord[] = await getPosts();
