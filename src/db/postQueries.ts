@@ -25,8 +25,12 @@ export async function createPost(formData: FormData) {
 }
 
 export async function getPosts() {
+    const { userId } = await auth();
+
     const xata = getXataClient();
-    const posts = await xata.db.posts.getMany();
+    const posts = await xata.db.posts.filter({
+        'userId': userId as string
+    }).getMany();
     return posts;
 }
 

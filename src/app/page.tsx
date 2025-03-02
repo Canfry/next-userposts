@@ -28,14 +28,16 @@ export default async function Home() {
           <h1 className="text-2xl font-bold">Please sign in to see the posts</h1>
         </SignedOut>
         <SignedIn>
-          {posts.map((post) => (
-            <div key={post.id}>
-              <h2>{post.title}</h2>
-              <p>{post.body}</p>
-
-            </div>
-
-          ))}
+          {posts.length === 0 ? (
+            <h1 className="text-2xl font-bold">No posts to display</h1>
+          ) : (
+            posts.map((post) => (
+              <div key={post.id}>
+                <h2>{post.title}</h2>
+                <p>{post.body}</p>
+              </div>
+            ))
+          )}
           <CreatePostForm />
         </SignedIn>
       </div>
