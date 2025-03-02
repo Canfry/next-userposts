@@ -26,8 +26,6 @@ export default async function Home() {
 
   return (
     <div className="flex-1 flex-col items-start justify-start h-screen overflow-y-auto w-full p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      {/* <div className="p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] flex-1 flex-col items-start justify-start gap-16"> */}
-      {/* <h1 className="text-2xl font-bold">List of my posts</h1> */}
       <SignedOut>
         <h1 className="text-2xl font-bold">Please sign in to see the posts</h1>
       </SignedOut>
