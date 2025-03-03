@@ -9,7 +9,7 @@ const xata = getXataClient();
 
 const { userId } = await auth();
 
-export async function createPost(formData: FormData) {
+export async function createPost(formData: FormData, userId: string) {
     const title = formData.get("title");
     const content = formData.get("content");
     const post = {

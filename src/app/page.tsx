@@ -9,7 +9,7 @@ export default async function Home() {
   console.log(userId);
 
   const user = await currentUser();
-  console.log(user?.emailAddresses[0].emailAddress);
+  console.log(user?.id);
 
 
   const posts: PostsRecord[] = await getPosts();

@@ -1,7 +1,11 @@
-import CreatePostForm from "@/components/CreatePostForm";
+"use server";
 
-export default function NewPost() {
+import CreatePostForm from "@/components/CreatePostForm";
+import { auth } from "@clerk/nextjs/server";
+
+export default async function NewPost() {
+    const { userId } = await auth();
     return (
-        <CreatePostForm />
+        <CreatePostForm userId={userId as string} />
     );
 }
