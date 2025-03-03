@@ -28,4 +28,19 @@ export async function getPosts() {
     return posts;
 }
 
+export async function searchPosts(search: string) {
+    // Get all posts for the current user
+    const allPosts = await xata.db.posts.filter({
+        'userId': userId as string
+    }).getMany();
+
+    // Filter posts based on search term (case insensitive)
+    const filteredPosts = allPosts.filter(post =>
+        post.title?.toLowerCase().includes(search.toLowerCase()) ||
+        post.body?.toLowerCase().includes(search.toLowerCase())
+    );
+
+    return filteredPosts;
+}
+
 
