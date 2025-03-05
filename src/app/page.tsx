@@ -12,7 +12,7 @@ export default async function Home() {
   console.log(user?.id);
 
 
-  const posts: PostsRecord[] = await getPosts();
+  const posts: PostsRecord[] = await getPosts(userId as string);
   console.log(posts);
 
   return (

@@ -2,12 +2,13 @@
 
 import { getXataClient } from "@/xata";
 import { PostsRecord } from "@/xata";
-import { auth } from "@clerk/nextjs/server";
+// import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 const xata = getXataClient();
 
-const { userId } = await auth();
+// const { userId } = await auth();
+// console.log(userId);
 
 export async function createPost(formData: FormData, userId: string) {
     const title = formData.get("title");
@@ -21,14 +22,14 @@ export async function createPost(formData: FormData, userId: string) {
     redirect("/");
 }
 
-export async function getPosts() {
+export async function getPosts(userId: string) {
     const posts = await xata.db.posts.filter({
         'userId': userId as string
     }).getMany();
     return posts;
 }
 
-export async function searchPosts(search: string) {
+export async function searchPosts(search: string, userId: string) {
     // Get all posts for the current user
     const allPosts = await xata.db.posts.filter({
         'userId': userId as string

@@ -1,5 +1,3 @@
-"use server";
-
 import CreatePostForm from "@/components/CreatePostForm";
 import { auth } from "@clerk/nextjs/server";
 
