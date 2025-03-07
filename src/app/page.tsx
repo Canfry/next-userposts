@@ -4,6 +4,8 @@ import { auth, currentUser } from "@clerk/nextjs/server";
 import { PostsRecord } from "@/xata";
 import PostCards from "@/components/PostCards";
 import Link from "next/link";
+
+
 export default async function Home() {
   const { userId } = await auth();
   console.log(userId);

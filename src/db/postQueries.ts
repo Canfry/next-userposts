@@ -18,7 +18,9 @@ export async function createPost(formData: FormData, userId: string) {
         body: content,
         userId: userId
     } as PostsRecord;
+
     await xata.db.posts.create(post);
+
     redirect("/");
 }
 
