@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { searchPosts, getPosts } from '@/db/postQueries'
 import { PostsRecord } from '@/xata'
 import PostCards from './PostCards'
+import Link from 'next/link'
 
 export default function SearchPost({ userId }: { userId: string }) {
     const [search, setSearch] = useState<string>('')
@@ -57,9 +58,11 @@ export default function SearchPost({ userId }: { userId: string }) {
                     <div className="text-center">No posts found</div>
                 ) : (
                     posts.map((post) => (
-                        <div key={post.id} className="flex flex-col items-start justify-start gap-4 shadow-xl shadow-gray-900 border-2 border-gray-900 rounded-md p-4 w-full hover:scale-101 transition-all duration-300 cursor-pointer">
-                            <PostCards post={post} />
-                        </div>
+                        <Link href={`/posts/${post.id}`} key={post.id}>
+                            <div key={post.id} className="flex flex-col items-start justify-start gap-4 shadow-xl shadow-gray-900 border-2 border-gray-900 rounded-md p-4 w-full hover:scale-101 transition-all duration-300 cursor-pointer">
+                                <PostCards post={post} />
+                            </div>
+                        </Link>
                     ))
                 )}
             </div>

@@ -36,6 +36,16 @@ export async function getPosts(userId: string) {
     }
 }
 
+export async function getPost(postId: string) {
+    try {
+        const post = await xata.db.posts.read(postId);
+        return JSON.parse(JSON.stringify(post));
+    } catch (error) {
+        console.error('Error getting post:', error);
+        return null;
+    }
+}
+
 export async function searchPosts(search: string, userId: string) {
     try {
         // Get all posts for the current user
