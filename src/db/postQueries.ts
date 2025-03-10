@@ -24,7 +24,7 @@ export async function createPost(formData: FormData, userId: string) {
     redirect("/");
 }
 
-export async function getPosts(userId: string) {
+export async function getPosts(userId: string): Promise<PostsRecord[]> {
     try {
         const posts = await xata.db.posts.filter({
             'userId': userId
@@ -36,7 +36,7 @@ export async function getPosts(userId: string) {
     }
 }
 
-export async function getPost(postId: string) {
+export async function getPost(postId: string): Promise<PostsRecord | null> {
     try {
         const post = await xata.db.posts.read(postId);
         return JSON.parse(JSON.stringify(post));
@@ -46,7 +46,7 @@ export async function getPost(postId: string) {
     }
 }
 
-export async function searchPosts(search: string, userId: string) {
+export async function searchPosts(search: string, userId: string): Promise<PostsRecord[]> {
     try {
         // Get all posts for the current user
         const allPosts = await xata.db.posts.filter({
