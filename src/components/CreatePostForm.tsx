@@ -1,6 +1,6 @@
 import Form from "next/form";
 import { createPost } from "@/db/postQueries";
-
+import CreatePostButton from "./CreatePostButton";
 export default async function CreatePostForm({ userId }: { userId: string }) {
 
 
@@ -16,7 +16,7 @@ export default async function CreatePostForm({ userId }: { userId: string }) {
                     <input type="text" placeholder="Title" name="title" className="w-full p-2 rounded-md bg-gray-900 border-2 border-gray-900" />
                     <textarea placeholder="Content" name="content" className="w-full p-2 rounded-md bg-gray-900 border-2 border-gray-900" />
                     <input type="hidden" name="userId" />
-                    <button type="submit" className="bg-gray-900 text-white px-4 py-2 rounded-md cursor-pointer">Create Post</button>
+                    <CreatePostButton />
                 </Form>
             </div>
         </>
