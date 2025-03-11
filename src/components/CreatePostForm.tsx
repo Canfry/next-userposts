@@ -1,8 +1,9 @@
 import Form from "next/form";
 import { createPost } from "@/db/postQueries";
 import CreatePostButton from "./CreatePostButton";
-export default async function CreatePostForm({ userId }: { userId: string }) {
 
+
+export default async function CreatePostForm({ userId }: { userId: string }) {
 
     const handleCreatePost = async (formData: FormData) => {
         "use server"
