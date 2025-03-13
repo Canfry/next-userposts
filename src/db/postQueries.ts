@@ -4,7 +4,7 @@ import { getXataClient } from "@/xata";
 import { PostsRecord } from "@/xata";
 // import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-
+import { revalidatePath } from "next/cache";
 const xata = getXataClient();
 
 // const { userId } = await auth();
@@ -72,3 +72,8 @@ export async function searchPosts(search: string, userId: string): Promise<Posts
 }
 
 
+export async function deletePost(postId: string) {
+    await xata.db.posts.delete(postId);
+    console.log("Post deleted: ", postId);
+    revalidatePath("/");
+}

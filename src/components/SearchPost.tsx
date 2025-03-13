@@ -1,10 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { searchPosts, getPosts } from '@/db/postQueries'
+import { searchPosts, getPosts, deletePost } from '@/db/postQueries'
 import { PostsRecord } from '@/xata'
 import PostCards from './PostCards'
-import Link from 'next/link'
 
 export default function SearchPost({ userId }: { userId: string }) {
     const [search, setSearch] = useState<string>('')
@@ -38,6 +37,16 @@ export default function SearchPost({ userId }: { userId: string }) {
         }
     }
 
+    const handleDeletePost = async (postId: string) => {
+        try {
+            await deletePost(postId)
+            // Update the local state by filtering out the deleted post
+            setPosts(posts.filter(post => post.id !== postId))
+        } catch (error) {
+            console.error('Error deleting post:', error)
+        }
+    }
+
     return (
         <div className="w-full">
             <input
@@ -58,11 +67,9 @@ export default function SearchPost({ userId }: { userId: string }) {
                     <div className="text-center">No posts found</div>
                 ) : (
                     posts.map((post) => (
-                        <Link href={`/posts/${post.id}`} key={post.id}>
-                            <div key={post.id} className="flex flex-col items-start justify-start gap-4 shadow-xl shadow-gray-900 border-2 border-gray-900 rounded-md p-4 w-full hover:scale-101 transition-all duration-300 cursor-pointer">
-                                <PostCards post={post} />
+                            <div key={post.id} className="flex items-center justify-between gap-4 shadow-xl shadow-gray-900 border-2 border-gray-900 rounded-md p-4 w-full hover:scale-101 transition-all duration-300 cursor-pointer">
+                                <PostCards post={post} deletePost={handleDeletePost} />
                             </div>
-                        </Link>
                     ))
                 )}
             </div>
