@@ -49,18 +49,18 @@ export default function SearchPost({ userId }: { userId: string }) {
           handleSearch(newValue);
         }}
         placeholder="Search posts..."
-        className="w-full p-2 rounded-md bg-gray-900 border-2 border-gray-900"
+        className="w-full p-3 rounded-md bg-[#1a1a2e] border border-purple-800/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50"
       />
       <div className="flex flex-col gap-4 mt-4">
         {isLoading ? (
-          <div className="text-center">Loading posts...</div>
+          <div className="text-center text-gray-400">Loading posts...</div>
         ) : posts.length === 0 ? (
-          <div className="text-center">No posts found</div>
+          <div className="text-center text-gray-400">No posts found</div>
         ) : (
           posts.map((post) => (
             <div
               key={post.id}
-              className="flex items-center justify-between gap-4 shadow-xl shadow-gray-900 border-2 border-gray-900 rounded-md p-4 w-full hover:scale-101 transition-all duration-300 cursor-pointer"
+              className="flex items-center justify-between gap-4 bg-[#1a1a2e] border border-purple-800/30 rounded-md p-4 w-full hover:scale-[1.02] transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-purple-900/20"
             >
               <Link
                 href={`/posts/${post.id}`}
