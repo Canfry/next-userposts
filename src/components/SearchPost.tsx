@@ -69,7 +69,9 @@ export default function SearchPost({ userId }: { userId: string }) {
                 <PostCards post={post} />
               </Link>
 
-              <p>Created at: Today</p>
+              <p>
+                Created: {new Date(post.xata.createdAt).toLocaleDateString()}
+              </p>
             </div>
           ))
         )}
