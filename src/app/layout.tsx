@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,12 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased w-full min-h-screen flex flex-col bg-[radial-gradient(ellipse_at_center,_#1a1a2e_0%,_#000000_100%)] text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased w-full h-full flex flex-col bg-[radial-gradient(ellipse_at_center,_#1a1a2e_0%,_#000000_100%)] text-white`}
       >
         <Nav />
-        {children}
+        <main className="flex-1 overflow-auto">{children}</main>
+        <Footer />
       </body>
     </html>
   );

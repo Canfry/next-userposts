@@ -19,7 +19,7 @@ export async function createPost(formData: FormData, userId: string) {
     redirect("/");
 }
 
-export async function getPosts(userId: string): Promise<PostsRecord[]> {
+export async function getPosts(userId: string) {
     try {
         const posts = await xata.db.posts.filter({
             'userId': userId
