@@ -49,9 +49,9 @@ export default function SearchPost({ userId }: { userId: string }) {
           handleSearch(newValue);
         }}
         placeholder="Search posts..."
-        className="w-full p-3 rounded-md bg-[#1a1a2e] border border-purple-800/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50"
+        className="w-1/4 p-3 rounded-md bg-[#1a1a2e] border border-purple-800/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50"
       />
-      <div className="flex flex-col gap-4 mt-4">
+      <div className="flex flex-col gap-4 mt-4 transition-all duration-300 ease-in-out">
         {isLoading ? (
           <div className="text-center text-gray-400">Loading posts...</div>
         ) : posts.length === 0 ? (

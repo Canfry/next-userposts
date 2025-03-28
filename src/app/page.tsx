@@ -7,7 +7,7 @@ export default async function Home() {
   const { userId } = await auth();
 
   return (
-    <div className="flex-1 flex-col items-start justify-start h-screen overflow-y-auto w-full p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="flex-1 flex-col items-start justify-start h-screen overflow-y-auto w-full p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] scroll-smooth">
       <SignedOut>
         <h1 className="text-2xl font-bold text-gray-200">
           Please sign in to see the posts

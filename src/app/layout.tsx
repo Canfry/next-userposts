@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full scroll-smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-full h-full flex flex-col bg-[radial-gradient(ellipse_at_center,_#1a1a2e_0%,_#000000_100%)] text-white`}
       >
